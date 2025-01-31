@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Type 'em all!</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="game-container">
+            <h1>Type 'em all!</h1>
+            <div id="difficulty-selection">
+                <h2>Select Difficulty</h2>
+                <button onclick="setDifficulty('easy')">Easy</button>
+                <button onclick="setDifficulty('medium')">Medium</button>
+                <button onclick="setDifficulty('hard')">Hard</button>
+            </div>
+            <div class="pokemon-container">
+                <img id="pokemon" src="" alt="Pokémon" />
+            </div>
+            <p id="word-display"></p>
+            <input type="text" id="word-input" placeholder="Type the word here..." />
+            <p>Score: <span id="score">0</span></p>
+            <p>Size: <span id="size">1x</span></p>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.game-container {
+    max-width: 500px;
+    margin: auto;
+}
+
+.pokemon-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+img {
+    transition: transform 0.3s ease-in-out;
+}
+
+input {
+    padding: 8px;
+    font-size: 16px;
+}
