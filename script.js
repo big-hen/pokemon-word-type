@@ -33,7 +33,7 @@ function newWord(wordList) {
 
 // Check user input
 wordInput.addEventListener('input', () => {
-    if (wordInput.value.toLowerCase() === currentWord.toLowerCase()) {
+    if (wordInput.value.toLowerCase() === currentWord.toLowerCase().replace(' ', '')) {
         handleCorrectTyping();
         newWord(words);
     }
