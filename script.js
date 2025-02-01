@@ -33,7 +33,7 @@ function newWord(wordList) {
 
 // Check user input
 wordInput.addEventListener('input', () => {
-    if (wordInput.value === currentWord || wordInput.value === currentWord.replace('-', '')) {
+    if (wordInput.value.toLowerCase() === currentWord.toLowerCase()) {
         handleCorrectTyping();
         newWord(words);
     }
@@ -118,7 +118,7 @@ async function startGame() {
 async function initGame() {
     wordInput.disabled = true;
     loadPokemon();
-    words = await getPokemonWords();
+    words = (await getPokemonWords()).map((word) => word.replace('-', ' '));
     newWord(words);
 }
 
