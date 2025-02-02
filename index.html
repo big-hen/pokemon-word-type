@@ -7,21 +7,25 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div class="game-container">
-            <h1>Type 'em all!</h1>
-            <div id="difficulty-selection">
-                <h2>Select Difficulty</h2>
-                <button onclick="setDifficulty('easy')">Easy</button>
-                <button onclick="setDifficulty('medium')">Medium</button>
-                <button onclick="setDifficulty('hard')">Hard</button>
+        <button onclick="muteAudio()">Mute</button>
+        <p>Spaces can be typed or not</p>
+        <div id="game-container">
+            <div id="word-area">
+                <h1>Type 'em all!</h1>
+                <div id="difficulty-selection">
+                    <h2>Select Difficulty</h2>
+                    <button onclick="setDifficulty('easy')">Easy</button>
+                    <button onclick="setDifficulty('medium')">Medium</button>
+                    <button onclick="setDifficulty('hard')">Hard</button>
+                </div>
+                <p id="word-display"></p>
+                <input type="text" id="word-input" placeholder="Type the word here..." />
+                <p>Score: <span id="score">0</span></p>
+                <p>Size: <span id="size">1x</span></p>
             </div>
-            <div class="pokemon-container">
-                <img id="pokemon" src="" alt="Pokémon" />
+            <div id="pokemon-container">
+                <img id="pokemon" src="pokemon.png" alt="Growing Pokémon" />
             </div>
-            <p id="word-display"></p>
-            <input type="text" id="word-input" placeholder="Type the word here..." />
-            <p>Score: <span id="score">0</span></p>
-            <p>Size: <span id="size">1x</span></p>
         </div>
         <script src="script.js"></script>
     </body>

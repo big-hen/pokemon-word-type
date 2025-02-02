@@ -3,17 +3,6 @@ body {
     text-align: center;
 }
 
-.game-container {
-    max-width: 500px;
-    margin: auto;
-}
-
-.pokemon-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
 img {
     transition: transform 0.3s ease-in-out;
 }
@@ -21,4 +10,38 @@ img {
 input {
     padding: 8px;
     font-size: 16px;
+}
+
+#word-display {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+#game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+    gap: 15em;
+}
+
+#word-area {
+    flex: 1;
+    text-align: center;
+}
+
+#pokemon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pokemon {
+    max-width: 100%;
+    transition: transform 0.3s ease-in-out;
 }

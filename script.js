@@ -1,14 +1,17 @@
 // DOM Elements
 const pokemonImage = document.getElementById('pokemon');
+const pokemonContainer = document.getElementById('pokemon-container');
 const wordDisplay = document.getElementById('word-display');
 const wordInput = document.getElementById('word-input');
+const wordArea = document.getElementById('word-area');
 const scoreDisplay = document.getElementById('score');
 const sizeDisplay = document.getElementById('size');
 const timerDisplay = document.createElement('p'); // Timer display
-document.body.appendChild(timerDisplay);
+wordArea.appendChild(timerDisplay);
 
 // Game Variables
 let currentWord = '';
+let lastWord = '';
 let score = 0;
 let sizeMultiplier = 1;
 let timeLeft = 60; // 60-second timer
@@ -26,14 +29,18 @@ async function loadPokemon() {
 
 // Pick a new word based on difficulty
 function newWord(wordList) {
+    lastWord = currentWord;
     currentWord = wordList[Math.floor(Math.random() * wordList.length)];
+    if (currentWord === lastWord) {
+        newWord(wordList);
+    }
     wordDisplay.textContent = currentWord;
     wordInput.value = '';
 }
 
 // Check user input
 wordInput.addEventListener('input', () => {
-    if (wordInput.value.toLowerCase() === currentWord.toLowerCase().replace(' ', '')) {
+    if (wordInput.value.toLowerCase().replace(' ', '') === currentWord.toLowerCase().replace(' ', '')) {
         handleCorrectTyping();
         newWord(words);
     }
@@ -88,7 +95,6 @@ function startShrinkEffect() {
 function setDifficulty(level) {
     difficulty = level;
     document.getElementById('difficulty-selection').style.display = 'none';
-    document.querySelector('.game-container').style.display = 'block';
     startGame();
 }
 
@@ -103,6 +109,10 @@ const bgMusic = new Audio(
 );
 bgMusic.loop = true;
 bgMusic.volume = 0.2; // Adjust volume
+
+function muteAudio() {
+    bgMusic.muted = !bgMusic.muted;
+}
 
 // Start the game
 async function startGame() {
